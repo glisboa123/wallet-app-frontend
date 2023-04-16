@@ -19,12 +19,10 @@
         </div>
       </div>
       <div class="finance-card-container">
-        <div id="finance-card-1" class="finance-card">
-          <h3>Total de lançamentos</h3>
-        </div>
-        <div id="finance-card-2" class="finance-card"><h3>Receitas</h3></div>
-        <div id="finance-card-3" class="finance-card"><h3>Despesas</h3></div>
-        <div id="finance-card-4" class="finance-card"><h3>Balanço</h3></div>
+        <div id="finance-card-1" class="finance-card"></div>
+        <div id="finance-card-2" class="finance-card"></div>
+        <div id="finance-card-3" class="finance-card"></div>
+        <div id="finance-card-4" class="finance-card"></div>
       </div>
       <div class="table-container">
         <div class="table-content-container">
@@ -50,7 +48,7 @@
           <h3>Adicionar lançamento</h3>
           <button onclick="closeModal()" class="small">Fechar</button>
         </div>
-        <form id="form-register" class="mt">
+        <form id="form-finance-release" class="mt">
           <label class="mt large" for="input-title">Título</label>
           <input
             class="mt smaller"
@@ -63,7 +61,8 @@
           <label class="mt large" for="input-value">Valor</label>
           <input
             class="mt smaller"
-            type="text"
+            type="number"
+            step="any"
             name="input-value"
             id="input-value"
             placeholder="R$ 0,00 (Use valores negativos para registrar despesas)"
