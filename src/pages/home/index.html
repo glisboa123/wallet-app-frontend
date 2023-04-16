@@ -30,7 +30,7 @@
         <div class="table-content-container">
           <div class="table-content-header">
             <h2>Últimos lançamentos</h2>
-            <button class="small">Adicionar</button>
+            <button onclick="openModal()" class="small">Adicionar</button>
           </div>
           <table id="finances-table">
             <tr>
@@ -42,6 +42,56 @@
             </tr>
           </table>
         </div>
+      </div>
+    </div>
+    <div id="modal" class="modal-background">
+      <div class="modal-content">
+        <div class="modal-content-header">
+          <h3>Adicionar lançamento</h3>
+          <button onclick="closeModal()" class="small">Fechar</button>
+        </div>
+        <form id="form-register" class="mt">
+          <label class="mt large" for="input-title">Título</label>
+          <input
+            class="mt smaller"
+            type="text"
+            name="input-title"
+            id="input-title"
+            placeholder="Ex: Conta de água"
+            required
+          />
+          <label class="mt large" for="input-value">Valor</label>
+          <input
+            class="mt smaller"
+            type="text"
+            name="input-value"
+            id="input-value"
+            placeholder="R$ 0,00 (Use valores negativos para registrar despesas)"
+            required
+          />
+          <label class="mt large" for="input-date">Data</label>
+          <input
+            class="mt smaller"
+            type="date"
+            name="input-date"
+            id="input-date"
+            placeholder="00/00/0000"
+            required
+          />
+          <label class="mt large" for="input-category">Categoria</label>
+          <select
+            class="mt smaller"
+            type="category"
+            name="input-category"
+            id="input-category"
+            required
+          >
+            <option value="input-category" disabled selected>
+              Selecione a categoria
+            </option>
+          </select>
+          <button type="submit" class="full-witdh mt">Adicionar</button>
+        </form>
       </div>
     </div>
   </body>
