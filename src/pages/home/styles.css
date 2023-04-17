@@ -107,24 +107,12 @@ th {
   color: #7c7c7c;
 }
 
+tr {
+  height: 34px;
+}
+
 td {
   color: #7c7c7c;
-}
-
-th.right {
-  text-align: right;
-}
-
-th.center {
-  text-align: center;
-}
-
-td.right {
-  text-align: right;
-}
-
-td.center {
-  text-align: center;
 }
 
 .modal-background {
