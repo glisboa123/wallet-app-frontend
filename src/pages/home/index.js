@@ -1,3 +1,9 @@
+const onLogout = () => {
+  localStorage.clear();
+  alert("Desconectado");
+  window.open("../../../index.html", "_self");
+};
+
 const onDeleteItem = async (id) => {
   try {
     const email = localStorage.getItem("@WalletApp:userEmail");
@@ -202,9 +208,9 @@ const renderFinanceElements = (data) => {
 const onLoadFinancesData = async () => {
   try {
     const email = localStorage.getItem("@WalletApp:userEmail");
-    const date = "2022-12-15";
+    const dateInputValue = document.getElementById("select-date").value;
     const result = await fetch(
-      `https://mp-wallet-app-api.herokuapp.com/finances?date=${date}`,
+      `https://mp-wallet-app-api.herokuapp.com/finances?date=${dateInputValue}`,
       {
         method: "GET",
         headers: {
@@ -237,6 +243,8 @@ const onLoadUserInfo = () => {
 
   // add logout link
   const logoutElement = document.createElement("a");
+  logoutElement.onclick = () => onLogout();
+  logoutElement.style.cursor = "pointer";
   const logoutText = document.createTextNode("sair");
   logoutElement.appendChild(logoutText);
   navbarUserInfo.append(logoutElement);
@@ -325,12 +333,25 @@ const onCreateFinanceRelease = async (target) => {
     closeModal();
     onLoadFinancesData();
   } catch (error) {
-    console.log(error);
     alert("Erro ao adicionar novo dado financeiro.");
   }
 };
 
+const setInitialDate = () => {
+  const dateInput = document.getElementById("select-date");
+  const nowDate = new Date();
+  const year = nowDate.getFullYear();
+  const mounth = nowDate.getMonth();
+  const date = nowDate.getDate();
+  const dateConversion = `${year}-0${mounth + 1}-${date}`;
+  dateInput.value = dateConversion;
+  dateInput.addEventListener("change", () => {
+    onLoadFinancesData();
+  });
+};
+
 window.onload = () => {
+  setInitialDate();
   onLoadUserInfo();
   onLoadFinancesData();
   onLoadCategories();
