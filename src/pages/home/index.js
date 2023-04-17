@@ -1,6 +1,5 @@
 const onLogout = () => {
   localStorage.clear();
-  alert("Desconectado");
   window.open("../../../index.html", "_self");
 };
 
@@ -71,11 +70,13 @@ const renderFinanceList = (data) => {
     categoryTd.appendChild(categoryText);
     tableRow.appendChild(categoryTd);
 
-    // category
+    // date
     const dateTd = document.createElement("td");
-    const dateText = document.createTextNode(
-      new Date(item.date).toLocaleDateString()
-    );
+    const date = new Date(item.date);
+    const timezoneOffset = date.getTimezoneOffset() * 60 * 1000;
+    const adjustedDate = new Date(date.getTime() + timezoneOffset);
+    const formattedDate = adjustedDate.toLocaleDateString();
+    const dateText = document.createTextNode(formattedDate);
     dateTd.appendChild(dateText);
     tableRow.appendChild(dateTd);
 
@@ -173,7 +174,7 @@ const renderFinanceElements = (data) => {
     new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
-    }).format(expenses * -1)
+    }).format(expenses)
   );
   const expensesTextElement = document.createElement("h1");
   expensesTextElement.id = "expenses-element";
@@ -339,12 +340,9 @@ const onCreateFinanceRelease = async (target) => {
 
 const setInitialDate = () => {
   const dateInput = document.getElementById("select-date");
-  const nowDate = new Date();
-  const year = nowDate.getFullYear();
-  const mounth = nowDate.getMonth();
-  const date = nowDate.getDate();
-  const dateConversion = `${year}-0${mounth + 1}-${date}`;
-  dateInput.value = dateConversion;
+  const nowDate = new Date().toISOString().split("T")[0];
+  console.log(nowDate);
+  dateInput.value = nowDate;
   dateInput.addEventListener("change", () => {
     onLoadFinancesData();
   });
