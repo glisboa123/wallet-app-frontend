@@ -27,16 +27,19 @@ const renderFinanceList = (data) => {
 
   const titleText = document.createTextNode("Título");
   const titleElement = document.createElement("th");
+  titleElement.className = "center";
   titleElement.appendChild(titleText);
   tableHeader.appendChild(titleElement);
 
   const categoryText = document.createTextNode("Categoria");
   const categoryElement = document.createElement("th");
+  categoryElement.className = "center";
   categoryElement.appendChild(categoryText);
   tableHeader.appendChild(categoryElement);
 
   const dateText = document.createTextNode("Data");
   const dateElement = document.createElement("th");
+  dateElement.className = "center";
   dateElement.appendChild(dateText);
   tableHeader.appendChild(dateElement);
 
@@ -48,7 +51,7 @@ const renderFinanceList = (data) => {
 
   const actionText = document.createTextNode("Ação");
   const actionElement = document.createElement("th");
-  actionElement.className = "right";
+  actionElement.className = "center";
   actionElement.appendChild(actionText);
   tableHeader.appendChild(actionElement);
 
@@ -60,21 +63,21 @@ const renderFinanceList = (data) => {
 
     // title
     const titleTd = document.createElement("td");
-    titleTd.className = "br";
+    titleTd.className = "br center";
     const titleText = document.createTextNode(item.title);
     titleTd.appendChild(titleText);
     tableRow.appendChild(titleTd);
 
     // category
     const categoryTd = document.createElement("td");
-    categoryTd.className = "br";
+    categoryTd.className = "br center";
     const categoryText = document.createTextNode(item.name);
     categoryTd.appendChild(categoryText);
     tableRow.appendChild(categoryTd);
 
     // date
     const dateTd = document.createElement("td");
-    dateTd.className = "br";
+    dateTd.className = "br center";
     const date = new Date(item.date);
     const timezoneOffset = date.getTimezoneOffset() * 60 * 1000;
     const adjustedDate = new Date(date.getTime() + timezoneOffset);
@@ -106,7 +109,7 @@ const renderFinanceList = (data) => {
       deleteTd.style.color = "#010400";
     });
     deleteTd.onclick = () => onDeleteItem(item.id);
-    deleteTd.className = "right br";
+    deleteTd.className = "center br";
     const deleteText = document.createTextNode("Excluir");
     deleteTd.appendChild(deleteText);
     tableRow.appendChild(deleteTd);
