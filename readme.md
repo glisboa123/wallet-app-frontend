@@ -1,5 +1,7 @@
 # Wallet App
 
+<img src="https://github.com/glisboa123/wallet-app-frontend/blob/main/src/img/preview.png" alt="Wallet App Preview" height="450">
+
 ## Introduction
 
 This is a finance management app built with JavaScript, HTML, and CSS. Its main goal is to help users control their finances easily and quickly. With it, you can add positive or negative incomes, registering name, date, and type. You can also delete any inserted data, and the app will calculate everything that is registered, displaying your final balance. All data will be stored in the email you use to sign up for an API.
