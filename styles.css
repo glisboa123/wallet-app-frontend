@@ -133,6 +133,10 @@ select {
   margin-top: 24px;
 }
 
+.br {
+  border-radius: 5px;
+}
+
 .mt.small {
   margin-top: 12px;
 }

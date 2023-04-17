@@ -60,18 +60,21 @@ const renderFinanceList = (data) => {
 
     // title
     const titleTd = document.createElement("td");
+    titleTd.className = "br";
     const titleText = document.createTextNode(item.title);
     titleTd.appendChild(titleText);
     tableRow.appendChild(titleTd);
 
     // category
     const categoryTd = document.createElement("td");
+    categoryTd.className = "br";
     const categoryText = document.createTextNode(item.name);
     categoryTd.appendChild(categoryText);
     tableRow.appendChild(categoryTd);
 
     // date
     const dateTd = document.createElement("td");
+    dateTd.className = "br";
     const date = new Date(item.date);
     const timezoneOffset = date.getTimezoneOffset() * 60 * 1000;
     const adjustedDate = new Date(date.getTime() + timezoneOffset);
@@ -82,7 +85,7 @@ const renderFinanceList = (data) => {
 
     // value
     const valueTd = document.createElement("td");
-    valueTd.className = "center";
+    valueTd.className = "center br";
     const valueText = document.createTextNode(
       new Intl.NumberFormat("pt-BR", {
         style: "currency",
@@ -94,15 +97,16 @@ const renderFinanceList = (data) => {
 
     // delete
     const deleteTd = document.createElement("td");
+
     deleteTd.style.cursor = "pointer";
     deleteTd.addEventListener("mouseover", () => {
       deleteTd.style.color = "red";
     });
     deleteTd.addEventListener("mouseout", () => {
-      deleteTd.style.color = "#7c7c7c";
+      deleteTd.style.color = "#010400";
     });
     deleteTd.onclick = () => onDeleteItem(item.id);
-    deleteTd.className = "right";
+    deleteTd.className = "right br";
     const deleteText = document.createTextNode("Excluir");
     deleteTd.appendChild(deleteText);
     tableRow.appendChild(deleteTd);
