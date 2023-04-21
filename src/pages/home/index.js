@@ -136,6 +136,7 @@ const renderFinanceElements = (data) => {
 
   const totalSubtext = document.createTextNode("Total de lançamentos");
   const totalSubTextElement = document.createElement("h3");
+  totalSubTextElement.className = "font";
   totalSubTextElement.appendChild(totalSubtext);
   financeCard1.appendChild(totalSubTextElement);
 
@@ -150,8 +151,9 @@ const renderFinanceElements = (data) => {
   const financeCard2 = document.getElementById("finance-card-2");
   financeCard2.innerHTML = "";
 
-  const revenueSubtext = document.createTextNode("Receitas");
+  const revenueSubtext = document.createTextNode("Entrada");
   const revenueSubtextElement = document.createElement("h3");
+  revenueSubtextElement.className = "font";
   revenueSubtextElement.appendChild(revenueSubtext);
   financeCard2.appendChild(revenueSubtextElement);
 
@@ -172,8 +174,9 @@ const renderFinanceElements = (data) => {
   const financeCard3 = document.getElementById("finance-card-3");
   financeCard3.innerHTML = "";
 
-  const expensesSubtext = document.createTextNode("Despesas");
+  const expensesSubtext = document.createTextNode("Saída");
   const expensesSubtextElement = document.createElement("h3");
+  expensesSubtextElement.className = "font";
   expensesSubtextElement.appendChild(expensesSubtext);
   financeCard3.appendChild(expensesSubtextElement);
 
@@ -196,6 +199,7 @@ const renderFinanceElements = (data) => {
 
   const balanceSubtext = document.createTextNode("Balanço");
   const balanceSubtextElement = document.createElement("h3");
+  balanceSubtextElement.className = "font";
   balanceSubtextElement.appendChild(balanceSubtext);
   financeCard4.appendChild(balanceSubtextElement);
 
