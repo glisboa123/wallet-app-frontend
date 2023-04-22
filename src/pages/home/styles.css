@@ -86,7 +86,7 @@
   display: flex;
   flex-direction: row;
   width: 80vw;
-  column-gap: 30px;
+  column-gap: 20px;
 }
 
 .finance-card-right-content {
@@ -217,6 +217,8 @@ h3.font {
   background-color: #f4f4f9;
   padding: 24px;
   box-sizing: border-box;
+  transform: translateX(100%);
+  animation: slide-in 0.5s forwards;
 }
 
 .modal-content-header {
@@ -225,4 +227,13 @@ h3.font {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
