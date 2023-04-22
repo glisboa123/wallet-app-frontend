@@ -26,6 +26,16 @@ const onCallRegister = async (email, name) => {
   }
 };
 
+const validarEmail = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (regex.test(email)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 const onRegister = async () => {
   const email = document.getElementById("input-email").value;
   const name = document.getElementById("input-name").value;
@@ -35,16 +45,15 @@ const onRegister = async () => {
     return;
   }
 
-  if (email.length < 5 || !email.includes("@")) {
-    alert("E-mail inválido!");
-    return;
+  if (validarEmail(email)) {
+  } else {
+    return alert("Por favor, insira um endereço de e-mail válido.");
   }
 
   const result = await onCallRegister(email, name);
 
   if (result.error) {
-    alert("Este e-mail já esta cadastrado.");
-    return;
+    return alert("O email inserido ja está cadastrado");
   }
   localStorage.setItem("@WalletApp:userEmail", result.email);
   localStorage.setItem("@WalletApp:userName", result.name);
