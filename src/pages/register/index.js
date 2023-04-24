@@ -26,28 +26,30 @@ const onCallRegister = async (email, name) => {
   }
 };
 
-const validarEmail = (email) => {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const isValidName = (name) => {
+  const re = /^[a-zA-Z\s]*$/;
+  return re.test(name);
+};
 
-  if (regex.test(email)) {
-    return true;
-  } else {
-    return false;
-  }
+const isValidEmail = (email) => {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
 };
 
 const onRegister = async () => {
   const email = document.getElementById("input-email").value;
   const name = document.getElementById("input-name").value;
 
-  if (name.length < 3) {
-    alert("Nome deve ter mais de 3 caracteres.");
+  if (!isValidName(name)) {
+    alert(
+      "Por favor, insira um nome válido (apenas letras e espaços em branco)."
+    );
     return;
   }
 
-  if (validarEmail(email)) {
-  } else {
-    return alert("Por favor, insira um endereço de e-mail válido.");
+  if (!isValidEmail(email)) {
+    alert("Por favor, insira um endereço de e-mail válido.");
+    return;
   }
 
   const result = await onCallRegister(email, name);
