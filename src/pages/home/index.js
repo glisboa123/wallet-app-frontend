@@ -110,8 +110,10 @@ const renderFinanceList = (data) => {
     });
     deleteTd.onclick = () => onDeleteItem(item.id);
     deleteTd.className = "center br";
-    const deleteText = document.createTextNode("Excluir");
-    deleteTd.appendChild(deleteText);
+    const deleteImg = document.createElement("img");
+    deleteImg.src = "../../../src/icon/trash-icon.png";
+    deleteImg.alt = "Excluir";
+    deleteTd.appendChild(deleteImg);
     tableRow.appendChild(deleteTd);
 
     // table add table row
@@ -197,7 +199,7 @@ const renderFinanceElements = (data) => {
   const financeCard4 = document.getElementById("finance-card-4");
   financeCard4.innerHTML = "";
 
-  const balanceSubtext = document.createTextNode("Balanço");
+  const balanceSubtext = document.createTextNode("Saldo");
   const balanceSubtextElement = document.createElement("h3");
   balanceSubtextElement.className = "font";
   balanceSubtextElement.appendChild(balanceSubtext);
