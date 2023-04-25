@@ -41,8 +41,10 @@
               <h2>Últimos lançamentos</h2>
             </div>
             <div class="table-content-container-buttons">
-              <button onclick="openModal()" class="small">Entrada</button>
-              <button class="small">Saída</button>
+              <button onclick="openModalPositive()" class="small">
+                Entrada
+              </button>
+              <button onclick="openModalNegative()" class="small">Saída</button>
             </div>
           </div>
 
@@ -50,13 +52,13 @@
         </div>
       </div>
     </div>
-    <div id="modal" class="modal-background">
+    <div id="modal-positive" class="modal-background">
       <div class="modal-content">
         <div class="modal-content-header">
-          <h3>Adicionar lançamento</h3>
+          <h3>Adicionar lançamento de entrada</h3>
           <button onclick="closeModal()" class="small">Fechar</button>
         </div>
-        <form id="form-finance-release" class="mt">
+        <form id="form-finance-release-positive" class="mt">
           <label class="mt large" for="input-title">Título</label>
           <input
             class="mt smaller"
@@ -73,7 +75,7 @@
             step="any"
             name="input-value"
             id="input-value"
-            placeholder="R$ 0,00 (Use valores negativos para registrar despesas)"
+            placeholder="R$ 0,00"
             required
           />
           <label class="mt large" for="input-date">Data</label>
@@ -85,15 +87,66 @@
             placeholder="00/00/0000"
             required
           />
-          <label class="mt large" for="input-category">Categoria</label>
+          <label class="mt large" for="input-category-add">Categoria</label>
           <select
             class="mt smaller"
             type="category"
-            name="input-category"
-            id="input-category"
+            name="input-category-add"
+            id="input-category-add"
             required
           >
-            <option value="input-category" disabled selected>
+            <option value="input-category-add" disabled selected>
+              Selecione a categoria
+            </option>
+          </select>
+          <button type="submit" class="full-witdh mt">Adicionar</button>
+        </form>
+      </div>
+    </div>
+    <div id="modal-negative" class="modal-background">
+      <div class="modal-content">
+        <div class="modal-content-header">
+          <h3>Adicionar lançamento de saída</h3>
+          <button onclick="closeModal()" class="small">Fechar</button>
+        </div>
+        <form id="form-finance-release-negative" class="mt">
+          <label class="mt large" for="input-title">Título</label>
+          <input
+            class="mt smaller"
+            type="text"
+            name="input-title"
+            id="input-title"
+            placeholder="Ex: Conta de água"
+            required
+          />
+          <label class="mt large" for="input-value">Valor</label>
+          <input
+            class="mt smaller"
+            type="number"
+            step="any"
+            name="input-value"
+            id="input-value"
+            placeholder="R$ 0,00"
+            required
+          />
+          <label class="mt large" for="input-date">Data</label>
+          <input
+            class="mt smaller"
+            type="date"
+            name="input-date"
+            id="input-date"
+            placeholder="00/00/0000"
+            required
+          />
+          <label class="mt large" for="input-category-remove">Categoria</label>
+          <select
+            class="mt smaller"
+            type="category"
+            name="input-category-remove"
+            id="input-category-remove"
+            required
+          >
+            <option value="input-category-remove" disabled selected>
               Selecione a categoria
             </option>
           </select>

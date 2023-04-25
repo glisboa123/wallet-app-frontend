@@ -268,9 +268,10 @@ const onLoadUserInfo = () => {
   navbarUserAvatar.appendChild(nameElement);
 };
 
-const onLoadCategories = async () => {
+// Carregas as opções que são exibidas na parte de categorias da MODAL
+const onLoadCategoriesPositive = async () => {
   try {
-    const categoriesSelect = document.getElementById("input-category");
+    const categoriesSelect = document.getElementById("input-category-add");
     const response = await fetch(
       `https://mp-wallet-app-api.herokuapp.com/categories`
     );
@@ -288,17 +289,46 @@ const onLoadCategories = async () => {
   }
 };
 
-const openModal = () => {
-  const modal = document.getElementById("modal");
+// Carregas as opções que são exibidas na parte de categorias da MODAL
+const onLoadCategoriesNegative = async () => {
+  try {
+    const categoriesSelect = document.getElementById("input-category-remove");
+    const response = await fetch(
+      `https://mp-wallet-app-api.herokuapp.com/categories`
+    );
+    const categoriesResult = await response.json();
+    categoriesResult.map((category) => {
+      const option = document.createElement("option");
+      const categoryText = document.createTextNode(category.name);
+      option.id = `category_${category.id}`;
+      option.value = category.id;
+      option.appendChild(categoryText);
+      categoriesSelect.appendChild(option);
+    });
+  } catch (error) {
+    alert("Erro ao carregar categorias");
+  }
+};
+
+const openModalPositive = () => {
+  const modal = document.getElementById("modal-positive");
+  modal.style.display = "flex";
+};
+
+const openModalNegative = () => {
+  const modal = document.getElementById("modal-negative");
   modal.style.display = "flex";
 };
 
 const closeModal = () => {
-  const modal = document.getElementById("modal");
-  modal.style.display = "none";
+  const modalPositive = document.getElementById("modal-positive");
+  const modalNegative = document.getElementById("modal-negative");
+  modalPositive.style.display = "none";
+  modalNegative.style.display = "none";
 };
 
-const onCallAddFinance = async (data) => {
+// Adiciona os dados de entrada na API
+const onCallAddFinancePositive = async (data) => {
   try {
     const email = localStorage.getItem("@WalletApp:userEmail");
 
@@ -324,13 +354,41 @@ const onCallAddFinance = async (data) => {
   }
 };
 
-const onCreateFinanceRelease = async (target) => {
+// Adiciona os dados de saída na API
+const onCallAddFinanceNegative = async (data) => {
+  try {
+    const email = localStorage.getItem("@WalletApp:userEmail");
+
+    const response = await fetch(
+      "https://mp-wallet-app-api.herokuapp.com/finances",
+      {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          email: email,
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    const user = await response.json();
+    return user;
+  } catch (error) {
+    return { error };
+  }
+};
+
+// Captura os dados de movimentação de entrada
+const onCreateFinanceRelease1 = async (target) => {
   try {
     const title = target[0].value;
     const value = Number(target[1].value);
     const date = target[2].value;
     const category = Number(target[3].value);
-    const result = await onCallAddFinance({
+    const result = await onCallAddFinancePositive({
       title,
       value,
       date,
@@ -349,10 +407,36 @@ const onCreateFinanceRelease = async (target) => {
   }
 };
 
+// Captura os dados da movimentação de saida
+const onCreateFinanceRelease2 = async (target) => {
+  try {
+    const title = target[0].value;
+    const value = Number(target[1].value) * -1;
+    const date = target[2].value;
+    const category = Number(target[3].value);
+    const result = await onCallAddFinanceNegative({
+      title,
+      value,
+      date,
+      category_id: category,
+    });
+
+    if (result.error) {
+      alert("Erro ao adicionar novo dado financeiro.");
+
+      return;
+    }
+    closeModal();
+    onLoadFinancesData();
+  } catch (error) {
+    alert("Erro ao adicionar novo dado financeiro.");
+  }
+};
+
+// Define data inicial do calendario para o dia atual do sistema
 const setInitialDate = () => {
   const dateInput = document.getElementById("select-date");
   const nowDate = new Date().toISOString().split("T")[0];
-  console.log(nowDate);
   dateInput.value = nowDate;
   dateInput.addEventListener("change", () => {
     onLoadFinancesData();
@@ -363,11 +447,17 @@ window.onload = () => {
   setInitialDate();
   onLoadUserInfo();
   onLoadFinancesData();
-  onLoadCategories();
+  onLoadCategoriesPositive();
+  onLoadCategoriesNegative();
 
-  const form = document.getElementById("form-finance-release");
-  form.onsubmit = (event) => {
+  const formPositive = document.getElementById("form-finance-release-positive");
+  formPositive.onsubmit = (event) => {
     event.preventDefault();
-    onCreateFinanceRelease(event.target);
+    onCreateFinanceRelease1(event.target);
+  };
+  const formNegative = document.getElementById("form-finance-release-negative");
+  formNegative.onsubmit = (event) => {
+    event.preventDefault();
+    onCreateFinanceRelease2(event.target);
   };
 };
