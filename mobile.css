@@ -1,0 +1,44 @@
+@media only screen and (max-device-width: 450px) {
+  .auth-content {
+    width: 95vw;
+    height: 70vh;
+    border-radius: 24px;
+    background-color: #f4f4f9;
+  }
+
+  .auth-content-container {
+    height: 80%;
+    justify-content: center;
+    row-gap: 30px;
+  }
+
+  .logo {
+    height: 120px;
+    margin: -200px 0px 100px 0;
+  }
+
+  h3 {
+    font-size: 60px;
+    margin: 0;
+  }
+  p {
+    font-size: 36px;
+  }
+  label {
+    font-size: 50px;
+  }
+  input {
+    height: 80px;
+    font-size: 40px;
+  }
+  button {
+    height: 84px;
+    width: 432px;
+    font-size: 40px;
+  }
+
+  a {
+    font-size: 32px;
+    margin-top: 60px;
+  }
+}
