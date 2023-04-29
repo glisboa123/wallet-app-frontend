@@ -1,6 +1,6 @@
 # Wallet App
 
-<img src="https://github.com/glisboa123/wallet-app-frontend/blob/main/src/img/preview.png" alt="Wallet App Preview" height="400" width="900">
+<img src="https://github.com/glisboa123/wallet-app-frontend/blob/main/src/img/preview.png?raw=true" alt="Wallet App Preview" height="400" width="900">
 
 ## Introduction
 
