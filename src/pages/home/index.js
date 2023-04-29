@@ -113,6 +113,7 @@ const renderFinanceList = (data) => {
     const deleteImg = document.createElement("img");
     deleteImg.src = "../../../src/icon/trash-icon.png";
     deleteImg.alt = "Excluir";
+    deleteImg.className = "img-delete";
     deleteTd.appendChild(deleteImg);
     tableRow.appendChild(deleteTd);
 
@@ -153,7 +154,7 @@ const renderFinanceElements = (data) => {
   const financeCard2 = document.getElementById("finance-card-2");
   financeCard2.innerHTML = "";
 
-  const revenueSubtext = document.createTextNode("Entrada");
+  const revenueSubtext = document.createTextNode("Receitas");
   const revenueSubtextElement = document.createElement("h3");
   revenueSubtextElement.className = "font";
   revenueSubtextElement.appendChild(revenueSubtext);
@@ -176,7 +177,7 @@ const renderFinanceElements = (data) => {
   const financeCard3 = document.getElementById("finance-card-3");
   financeCard3.innerHTML = "";
 
-  const expensesSubtext = document.createTextNode("Saída");
+  const expensesSubtext = document.createTextNode("Despesas");
   const expensesSubtextElement = document.createElement("h3");
   expensesSubtextElement.className = "font";
   expensesSubtextElement.appendChild(expensesSubtext);
@@ -199,7 +200,7 @@ const renderFinanceElements = (data) => {
   const financeCard4 = document.getElementById("finance-card-4");
   financeCard4.innerHTML = "";
 
-  const balanceSubtext = document.createTextNode("Saldo");
+  const balanceSubtext = document.createTextNode("Balanço do mês");
   const balanceSubtextElement = document.createElement("h3");
   balanceSubtextElement.className = "font";
   balanceSubtextElement.appendChild(balanceSubtext);
@@ -252,6 +253,7 @@ const onLoadUserInfo = () => {
   // add user email
   const emailElement = document.createElement("p");
   const emailText = document.createTextNode(email);
+  emailElement.className = "display-email";
   emailElement.appendChild(emailText);
   navbarUserInfo.appendChild(emailElement);
 
@@ -260,6 +262,7 @@ const onLoadUserInfo = () => {
   logoutElement.onclick = () => onLogout();
   logoutElement.style.cursor = "pointer";
   const logoutText = document.createTextNode("sair");
+  logoutElement.className = "exit-button";
   logoutElement.appendChild(logoutText);
   navbarUserInfo.append(logoutElement);
 

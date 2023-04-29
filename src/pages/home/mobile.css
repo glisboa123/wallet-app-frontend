@@ -1,0 +1,140 @@
+@media only screen and (max-device-width: 450px) {
+  .navbar {
+    padding: 24px 32px;
+  }
+
+  .logo {
+    display: none;
+  }
+  .input-calendar {
+    font-size: 34px;
+    height: 40px;
+    box-sizing: unset;
+    margin-top: 12px;
+  }
+  .navbar-user-avatar {
+    display: none;
+  }
+  .exit-button,
+  .display-email {
+    margin-left: 20px;
+    font-size: 36px;
+    text-decoration: none;
+  }
+  .finance-content {
+    column-gap: 0px;
+  }
+  .finance-card-right-content {
+    padding: 10px 10px;
+    width: 28vw;
+  }
+  .finance-card {
+    width: 60vw;
+    padding: 5px 30px;
+  }
+
+  .finance-card-right-content {
+    height: 88%;
+  }
+
+  h3.font,
+  #total-element,
+  #revenue-element,
+  #expenses-element,
+  #balance-element {
+    font-size: 40px;
+  }
+
+  .table-content-container {
+    width: 98%;
+    padding: 12px;
+  }
+
+  .table-content-header {
+    width: 95%;
+  }
+  .title-table-content {
+    font-size: 42px;
+    font-weight: 600;
+  }
+
+  #button-entrada,
+  #button-saida {
+    background-color: #f4f4f9;
+    color: #010400;
+    font-size: 30px;
+    border-radius: 8px;
+    width: 240px;
+    height: auto;
+    font-weight: 600;
+  }
+  th {
+    font-size: 32px;
+  }
+  td {
+    font-size: 32px;
+    max-width: 200px;
+    padding: 12px;
+  }
+
+  .img-delete {
+    height: 44px;
+    width: 44px;
+  }
+
+  .modal-content {
+    width: 100%;
+  }
+
+  .text-modal {
+    font-size: 46px;
+  }
+  #close-modal-button {
+    width: 180px;
+    font-size: 42px;
+    font-weight: 500;
+    height: 96px;
+  }
+
+  .label-title {
+    font-size: 44px;
+  }
+
+  #input-title,
+  #input-value,
+  #input-date {
+    height: 88px;
+    font-size: 38px;
+    color: gray;
+  }
+  #input-category-add,
+  #input-category-remove {
+    height: 88px;
+    font-size: 38px;
+  }
+
+  .button-modal-add {
+    font-size: 52px;
+    height: 80px;
+    width: 100%;
+    border-radius: 40px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+
+  .button-modal-add.mt {
+    margin-top: 60px;
+  }
+  #category_0,
+  #category_1,
+  #category_2,
+  #category_3,
+  #category_4,
+  #category_5,
+  #category_6,
+  #category_7,
+  #category_8,
+  #category_9 {
+    font-size: 18px;
+  }
+}
