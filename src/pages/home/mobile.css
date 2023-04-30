@@ -1,10 +1,12 @@
 @media only screen and (max-device-width: 450px) {
   .navbar {
     padding: 24px 32px;
+    height: 120px;
+    margin-bottom: 30px;
   }
 
   .logo {
-    display: none;
+    height: 40px;
   }
   .input-calendar {
     font-size: 34px;
@@ -24,6 +26,11 @@
   .finance-content {
     column-gap: 0px;
   }
+
+  .finance-card-container {
+    margin-bottom: 60px;
+  }
+
   .finance-card-right-content {
     padding: 10px 10px;
     width: 28vw;
@@ -47,7 +54,11 @@
 
   .table-content-container {
     width: 98%;
-    padding: 12px;
+    padding: 24px;
+  }
+
+  .table-content-container-header {
+    margin: 36px 20px 20px 20px;
   }
 
   .table-content-header {
