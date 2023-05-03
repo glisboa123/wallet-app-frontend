@@ -6,7 +6,7 @@
   }
 
   .logo {
-    height: 40px;
+    display: none;
   }
   .input-calendar {
     font-size: 34px;
