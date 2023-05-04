@@ -459,10 +459,12 @@ window.onload = () => {
   formPositive.onsubmit = (event) => {
     event.preventDefault();
     onCreateFinanceRelease1(event.target);
+    formPositive.reset();
   };
   const formNegative = document.getElementById("form-finance-release-negative");
   formNegative.onsubmit = (event) => {
     event.preventDefault();
     onCreateFinanceRelease2(event.target);
+    formNegative.reset();
   };
 };
